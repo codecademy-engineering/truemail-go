@@ -102,7 +102,11 @@ func (smtpClient *smtpClient) runSession() bool {
 		smtpClient.err = &SmtpClientError{isResponseTimeout: true, err: err}
 	}
 
-	client, _ := smtp.NewClient(connection, smtpClient.targetServerAddress)
+	client, err := smtp.NewClient(connection, smtpClient.targetServerAddress)
+	if err != nil {
+		return false
+	}
+
 	smtpClient.client = client
 	defer client.Close()
 

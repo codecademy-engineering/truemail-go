@@ -1,4 +1,4 @@
-module github.com/truemail-rb/truemail-go
+module github.com/codecademy-engineering/truemail-go
 
 go 1.20
 
